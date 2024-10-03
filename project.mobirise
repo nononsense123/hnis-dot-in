@@ -1,0 +1,460 @@
+{
+  "settings": {
+    "name": "Site 2024-10-03 14:52",
+    "currentPage": "index.html",
+    "theme": {
+      "name": "startm5",
+      "title": "StartM5",
+      "titlePreset": "StartM5",
+      "styling": {
+        "primaryColor": "#9fe870",
+        "secondaryColor": "#ffd7ef",
+        "successColor": "#3a341c",
+        "infoColor": "#320707",
+        "warningColor": "#a0e2e1",
+        "dangerColor": "#ffea64",
+        "mainFont": "Inter Tight",
+        "display1Font": "Inter Tight",
+        "display1Size": 5,
+        "display2Font": "Inter Tight",
+        "display2Size": 4,
+        "display5Font": "Inter Tight",
+        "display5Size": 2,
+        "display7Font": "Inter Tight",
+        "display7Size": 1.4,
+        "display4Font": "Inter Tight",
+        "display4Size": 1.4,
+        "isRoundedImages": true,
+        "isRoundedButtons": true,
+        "isLargeButtons": true,
+        "isGhostButtonBorder": true,
+        "underlinedLinks": false,
+        "isAnimatedOnScroll": false,
+        "isScrollToTopButton": false
+      },
+      "additionalSetColors": []
+    },
+    "path": "@PROJECT_PATH@",
+    "versionFirst": "5.9.17",
+    "siteFonts": [],
+    "uniqCompNum": 12,
+    "versionPublish": "5.9.17"
+  },
+  "pages": {
+    "index.html": {
+      "settings": {
+        "main": true,
+        "title": "Home",
+        "meta_descr": "",
+        "header_custom": "",
+        "footer_custom": "",
+        "html_before": ""
+      },
+      "components": [
+        {
+          "alias": false,
+          "_styles": {
+            "& when not (@fullScreen)": {
+              "padding-top": "(@paddingTop * 1rem)",
+              "padding-bottom": "(@paddingBottom * 1rem)"
+            },
+            "& when (@bg-type = 'image')": {
+              "background-image": "url(@bg-value)"
+            },
+            "& when (@bg-type = 'color')": {
+              "background-color": "@bg-value"
+            },
+            ".mbr-fallback-image.disabled": {
+              "display": "none"
+            },
+            ".mbr-fallback-image": {
+              "display": "block",
+              "background-size": "cover",
+              "background-position": "center center",
+              "width": "100%",
+              "height": "100%",
+              "position": "absolute",
+              "top": "0",
+              "& when (@bg-type = 'video')": {
+                "background-image": "url(@fallBackImage)"
+              }
+            },
+            ".image-wrap img": {
+              "width": "100%",
+              "@media (min-width: 992px)": {
+                "display": "block",
+                "margin": "auto"
+              }
+            },
+            ".row-links": {
+              "width": "100%",
+              "justify-content": "center"
+            },
+            ".header-menu": {
+              "list-style": "none",
+              "display": "flex",
+              "justify-content": "center",
+              "flex-wrap": "wrap",
+              "padding": "0",
+              "margin-bottom": "0",
+              "li": {
+                "padding": "0 1rem 1rem 1rem",
+                "p": {
+                  "margin": "0"
+                }
+              }
+            },
+            ".mbr-section-title": {
+              "color": "#ffffff"
+            },
+            ".header-menu-item": {
+              "color": "#ffffff"
+            },
+            ".mbr-text, .mbr-section-btn": {
+              "color": "#ffffff",
+              "text-align": "center"
+            },
+            ".content-head": {
+              "max-width": "800px"
+            }
+          },
+          "_name": "header16",
+          "_sourceTheme": "startm5",
+          "_customHTML": "<section data-bs-version=\"5.1\" class=\"header16\" group=\"Headers\" data-bg-video=\"{{bg.type == 'video' && bg.value.url}}\" mbr-class=\"{\n    'mbr-fullscreen': fullScreen,\n    'mbr-parallax-background': bg.parallax}\">\n  <mbr-parameters>\n    <header>Size</header>\n    <input type=\"checkbox\" title=\"Full Screen\" name=\"fullScreen\">\n    <input type=\"checkbox\" title=\"Full Width\" name=\"fullWidth\">\n    <input type=\"range\" inline title=\"Top\" name=\"paddingTop\" min=\"0\" max=\"12\" step=\"1\" value=\"6\" condition=\"fullScreen == false\">\n    <input type=\"range\" inline title=\"Bottom\" name=\"paddingBottom\" min=\"0\" max=\"12\" step=\"1\" value=\"0\" condition=\"fullScreen == false\">\n    <input type=\"range\" name=\"imageWidth\" title=\"Image Width\" min=\"4\" max=\"12\" step=\"1\" value=\"4\" condition=\"showImage\">\n\n    <header>Show/Hide</header>\n    <input type=\"checkbox\" title=\"Title\" name=\"showTitle\" checked>\n    <input type=\"checkbox\" title=\"Text\" name=\"showText\">\n    <input type=\"checkbox\" title=\"Image\" name=\"showImage\" checked>\n    <input type=\"range\" inline title=\"Menu Items\" name=\"menuItems\" min=\"0\" max=\"10\" step=\"1\" value=\"0\">\n\n    <header>Background</header>\n    <fieldset type=\"background\" name=\"bg\" parallax>\n      <input type=\"image\" title=\"Image\" value=\"../_images/background1.jpg\">\n      <input type=\"color\" title=\"Color\" value=\"#0c2c68\" selected>\n      <input type=\"video\" title=\"Video\" value=\"https://vimeo.com/428046504\">\n    </fieldset>\n    <header condition=\"bg.type === 'video'\">Fallback Image</header>\n    <input type=\"image\" title=\"Fallback Image\" value=\"../_images/background1.jpg\" name=\"fallBackImage\" condition=\"bg.type === 'video'\">\n    <input type=\"checkbox\" title=\"Overlay\" name=\"overlay\" condition=\"bg.type !== 'color'\">\n    <input type=\"color\" title=\"Overlay Color\" name=\"overlayColor\" value=\"#ffffff\" condition=\"overlay && bg.type !== 'color'\">\n    <input type=\"range\" inline title=\"Opacity\" name=\"overlayOpacity\" min=\"0\" max=\"1\" step=\"0.1\" value=\"0.5\" condition=\"overlay && bg.type !== 'color'\">\n  </mbr-parameters>\n\n  <div class=\"mbr-fallback-image disabled\" mbr-if=\"bg.type == 'video'\"></div>\n  <div class=\"mbr-overlay\" mbr-if=\"overlay && bg.type !== 'color'\" opacity=\"{{overlayOpacity}}\" bg-color=\"{{overlayColor}}\"></div>\n\n  <div class=\"text-center\" mbr-class=\"{'container': !fullWidth, 'container-fluid': fullWidth}\">\n    <div class=\"row justify-content-center mb-4\" mbr-if=\"showImage\">\n      <div class=\"col-12 col-lg-{{imageWidth}}\">\n        <div class=\"image-wrap\" mbr-if=\"showImage\">\n          <img src=\"@PROJECT_PATH@/assets/images/logo-copy.jpeg\" alt=\"Mobirise Website Builder\">\n        </div>\n      </div>\n    </div>\n    <div class=\"row justify-content-center\">\n      <div class=\"col-md-12 content-head\">\n        <h1 class=\"mbr-section-title mbr-fonts-style mt-4\" data-app-selector=\".mbr-section-title\" mbr-theme-style=\"display-5\" mbr-if=\"showTitle\"><b>Investments for High Net worth Individuals of Today as well as Tomorrow</b></h1>\n        <p class=\"mbr-text mbr-fonts-style mt-4\" mbr-theme-style=\"display-7\" mbr-if=\"showText\" data-app-selector=\".mbr-text, .mbr-section-btn\"></p>\n        <div class=\"row-links mt-4\" mbr-if=\"menuItems > 0\">\n          <ul class=\"header-menu\" mbr-list mbr-list-grow=\"menuItems\">\n            <li mbr-text class=\"header-menu-item mbr-fonts-style\" mbr-theme-style=\"display-5\" data-app-selector=\"header-menu-item\">\n              <a href=\"#\" class=\"text-secondary\">Shop</a>\n            </li>\n            \n            \n            \n          </ul>\n        </div>\n      </div>\n    </div>\n  </div>\n</section>",
+          "_cid": "uq8EK82Cnz",
+          "_anchor": "header16-a",
+          "_protectedParams": [],
+          "_global": false,
+          "_once": false,
+          "_params": {}
+        },
+        {
+          "alias": false,
+          "_styles": {
+            "display": "flex",
+            "& when not (@fullScreen)": {
+              "padding-top": "(@paddingTop * 1rem)",
+              "padding-bottom": "(@paddingBottom * 1rem)"
+            },
+            "& when (@bg-type = \"color\")": {
+              "background-color": "@bg-value"
+            },
+            "& when (@bg-type = \"image\")": {
+              "background-image": "url(@bg-value)",
+              ".mbr-overlay": {
+                "background-color": "@overlayColor",
+                "opacity": "@overlayOpacity"
+              }
+            },
+            ".content-wrap": {
+              "padding": "5rem 1rem",
+              "@media (min-width: 992px)": {
+                "padding": "5rem 3rem"
+              }
+            },
+            "@media (min-width: 768px)": {
+              "align-items": "~\"@{verticalAlign}\"",
+              ".row": {
+                "justify-content": "~\"@{horizontalAlign}\""
+              }
+            },
+            "@media (max-width: 991px) and (min-width: 768px)": {
+              ".content-wrap": {
+                "min-width": "50%"
+              }
+            },
+            "@media (max-width: 767px)": {
+              "-webkit-align-items": "center",
+              "align-items": "center",
+              ".mbr-row": {
+                "-webkit-justify-content": "center",
+                "justify-content": "center"
+              },
+              ".content-wrap": {
+                "width": "100%"
+              }
+            },
+            ".mbr-section-title": {
+              "text-align": "center",
+              "color": "#ffffff"
+            },
+            ".mbr-text, .mbr-section-btn": {
+              "text-align": "center",
+              "color": "#ffffff"
+            },
+            ".mbr-description": {
+              "text-align": "center",
+              "color": "#ffffff"
+            }
+          },
+          "_name": "header19",
+          "_sourceTheme": "startm5",
+          "_customHTML": "<section data-bs-version=\"5.1\" class=\"header19\" data-bg-video=\"{{bg.type == 'video' && bg.value.url}}\" group=\"Headers\" mbr-class=\"{'mbr-fullscreen': fullScreen, 'mbr-parallax-background': bg.parallax}\">\n  <mbr-parameters>\n    <header>Size</header>\n    <input type=\"checkbox\" title=\"Full Screen\" name=\"fullScreen\">\n    <input type=\"checkbox\" title=\"Full Width\" name=\"fullWidth\">\n    <input type=\"range\" inline title=\"Top\" name=\"paddingTop\" min=\"0\" max=\"12\" step=\"1\" value=\"0\" condition=\"fullScreen == false\">\n    <input type=\"range\" inline title=\"Bottom\" name=\"paddingBottom\" min=\"0\" max=\"12\" step=\"1\" value=\"0\" condition=\"fullScreen == false\">\n    <input type=\"range\" inline name=\"contentWidth\" title=\"Content Width\" min=\"4\" max=\"12\" step=\"1\" value=\"4\">\n    <header>Show / Hide</header>\n    <input type=\"checkbox\" title=\"Title\" name=\"showTitle\">\n    <input type=\"checkbox\" title=\"Text\" name=\"showText\">\n    <input type=\"checkbox\" title=\"Buttons\" name=\"showButtons\" checked>\n    <input type=\"checkbox\" title=\"Description\" name=\"showDescription\">\n    <select title=\"Vertical Align\" name=\"verticalAlign\" condition=\"fullScreen\">\n      <option value=\"flex-start\">Top</option>\n      <option value=\"center\" selected>Center</option>\n      <option value=\"flex-end\">Bottom</option>\n    </select>\n    <select title=\"Horizontal Align\" name=\"horizontalAlign\">\n      <option value=\"flex-start\">Left</option>\n      <option value=\"center\" selected>Center</option>\n      <option value=\"flex-end\">Right</option>\n    </select>\n    <header>Background</header>\n    <fieldset type=\"background\" name=\"bg\" parallax>\n      <input type=\"image\" title=\"Image\" value=\"../_images/background3.jpg\">\n      <input type=\"color\" title=\"Color\" value=\"#0c2c68\" selected>\n      <input type=\"video\" title=\"Video\" value=\"https://vimeo.com/428046504\">\n    </fieldset>\n    <header condition=\"bg.type === 'video'\">Fallback Image</header>\n    <input type=\"image\" title=\"Fallback Image\" value=\"../_images/background1.jpg\" name=\"fallBackImage\" condition=\"bg.type === 'video'\">\n    <input type=\"checkbox\" title=\"Overlay\" name=\"overlay\" condition=\"bg.type !== 'color'\">\n    <input type=\"color\" title=\"Overlay Color\" name=\"overlayColor\" value=\"#1f6463\" condition=\"overlay && bg.type !== 'color'\">\n    <input type=\"range\" inline title=\"Opacity\" name=\"overlayOpacity\" min=\"0\" max=\"1\" step=\"0.1\" value=\"0.8\" condition=\"overlay && bg.type !== 'color'\">\n  </mbr-parameters>\n\n  <div class=\"mbr-fallback-image disabled\" mbr-if=\"bg.type == 'video'\"></div>\n  <div class=\"mbr-overlay\" mbr-if=\"overlay && bg.type !== 'color'\" opacity=\"{{overlayOpacity}}\" bg-color=\"{{overlayColor}}\"></div>\n  <div mbr-class=\"{'container': !fullWidth, 'container-fluid': fullWidth}\">\n    <div class=\"row\">\n      <div class=\"content-wrap col-12 col-md-{{contentWidth}}\">\n        <h1 class=\"mbr-section-title mbr-fonts-style mb-4\" mbr-theme-style=\"display-1\" data-app-selector=\".mbr-section-title\" mbr-if=\"showTitle\">\n          <b>HNIs.in</b></h1>\n        <p class=\"mbr-fonts-style mbr-text mb-4\" mbr-theme-style=\"display-7\" mbr-if=\"showText\" data-app-selector=\".mbr-text, .mbr-section-btn\">Investments for High Net worth Individuals of Today as well as Tomorrow</p>\n        <div class=\"mbr-section-btn\" mbr-if=\"showButtons\" data-toolbar=\"-mbrBtnMove\" mbr-buttons mbr-theme-style=\"display-7\"><a class=\"btn btn-warning\" href=\"https://mobiri.se\" data-app-placeholder=\"Type Text\">Login</a></div>\n        <p class=\"mbr-fonts-style mbr-description mt-4\" mbr-theme-style=\"display-7\" mbr-if=\"showDescription\" data-app-selector=\".mbr-description\"></p>\n      </div>\n    </div>\n  </div>\n</section>",
+          "_cid": "uq8gv6W0oY",
+          "_anchor": "header19-4",
+          "_protectedParams": [],
+          "_global": false,
+          "_once": false,
+          "_params": {}
+        },
+        {
+          "alias": false,
+          "_styles": {
+            "padding-top": "(@paddingTop * 1rem)",
+            "padding-bottom": "(@paddingBottom * 1rem)",
+            "& when (@bg-type = 'color')": {
+              "background-color": "@bg-value"
+            },
+            "& when (@bg-type = 'image')": {
+              "background-image": "url(@bg-value)"
+            },
+            ".mbr-iconfont": {
+              "font-size": "1.2rem !important",
+              "font-family": "'Moririse2' !important",
+              "color": "white",
+              "transition": "all 0.3s",
+              "transform": "rotate(180deg)",
+              "padding-left": "0.5rem"
+            },
+            ".panel-group": {
+              "border": "none"
+            },
+            ".card-header": {
+              "padding": "0rem",
+              "@media (max-width: 767px)": {
+                "padding": "0rem"
+              }
+            },
+            ".panel-body": {
+              "padding": "0rem",
+              "padding-bottom": "0.5rem",
+              "margin-top": "1rem"
+            },
+            ".img-col": {
+              "padding": "0"
+            },
+            ".img-item": {
+              "height": "100%"
+            },
+            "img": {
+              "height": "100%",
+              "object-fit": "cover"
+            },
+            ".collapsed": {
+              "span": {
+                "transform": "rotate(0deg)"
+              }
+            },
+            ".panel-title": {
+              "display": "flex",
+              "align-items": "center",
+              "justify-content": "space-between"
+            },
+            "p": {
+              "margin-bottom": "0.3rem"
+            },
+            ".panel-title-edit": {
+              "color": "#000000"
+            },
+            ".card .card-header": {
+              "background-color": "transparent",
+              "margin-bottom": "0",
+              "border": "0",
+              "border-radius": "2rem"
+            },
+            ".card": {
+              "background": "@items",
+              "padding": "2.25rem",
+              "border-radius": "2rem",
+              "margin-bottom": "1rem",
+              "@media (max-width: 767px)": {
+                "padding": "2rem 1.5rem",
+                "margin-bottom": "1rem"
+              },
+              "@media (min-width: 992px) and (max-width: 1200px)": {
+                "margin-bottom": "1rem",
+                "padding": "2rem 1.5rem"
+              }
+            },
+            ".panel-text": {
+              "color": "#000000"
+            },
+            ".mbr-section-title": {
+              "text-align": "center",
+              "color": "#000000"
+            },
+            ".mbr-section-subtitle": {
+              "color": "#000000",
+              "text-align": "center"
+            },
+            ".panel-title-edit, .mbr-iconfont": {
+              "color": "#000000"
+            }
+          },
+          "_name": "list01",
+          "_sourceTheme": "startm5",
+          "_customHTML": "<section data-bs-version=\"5.1\" class=\"list1\" group=\"List\" mbr-class=\"{'mbr-parallax-background':bg.parallax}\" plugins=\"mbr-switch-arrow, mobirise-icons2\">\t\n    <mbr-parameters>\n\t\t<header>Size</header>\n\t\t<input type=\"range\" inline title=\"Top\" name=\"paddingTop\" min=\"0\" max=\"10\" step=\"1\" value=\"6\">\n\t\t<input type=\"range\" inline title=\"Bottom\" name=\"paddingBottom\" min=\"0\" max=\"10\" step=\"1\" value=\"0\">\n\t\t<header>Show/Hide</header>\n\t\t<input type=\"checkbox\" title=\"Title\" name=\"showTitle\" checked>\n\t\t<input type=\"checkbox\" title=\"Subtitle\" name=\"showSubtitle\">\n\t\t<select title=\"Amount\" name=\"cardAmount\">\n\t\t\t<option value=\"1\">1</option>\n\t\t\t<option value=\"2\">2</option>\n\t\t\t<option value=\"3\">3</option>\n\t\t\t<option value=\"4\">4</option>\n\t\t\t<option value=\"5\">5</option>\n\t\t\t<option value=\"6\" selected>6</option>\n\t\t</select>\n\t\t<header>Color</header>\n\t\t<input type=\"color\" title=\"Item\" name=\"items\" value=\"#ffffff\" selected>\n\n\t\t<header>Background</header>\n\t\t<fieldset type=\"background\" name=\"bg\" parallax>\n\t\t\t<input type=\"image\" title=\"Image\" value=\"../_images/background1.jpg\">\n\t\t\t<input type=\"color\" title=\"Color\" value=\"#edefeb\" selected>\n\t\t</fieldset>\n\t\t<input type=\"checkbox\" title=\"Overlay\" name=\"overlay\" checked condition=\"bg.type !== 'color'\">\n\t\t<input type=\"color\" title=\"Overlay Color\" name=\"overlayColor\" value=\"#ffffff\" condition=\"overlay && bg.type !== 'color'\">\n\t\t<input type=\"range\" inline title=\"Opacity\" name=\"overlayOpacity\" min=\"0\" max=\"1\" step=\"0.1\" value=\"0.9\" condition=\"overlay && bg.type !== 'color'\">\n\t</mbr-parameters>\n\t<div class=\"mbr-overlay\" mbr-if=\"overlay && bg.type!== 'color'\" mbr-style=\"{'opacity': overlayOpacity, 'background-color': overlayColor}\"></div>\n\t<div class=\"container\">\n\t\t<div class=\"row justify-content-center\">\n\t\t\t<div class=\"col-12 col-md-12 col-lg-10 m-auto\">\n\t\t\t\t<div class=\"content\">\n\t\t\t\t\t<div class=\"row justify-content-center mb-5\" mbr-if=\"showTitle || showSubtitle\">\n\t\t\t\t\t\t<div class=\"col-12 content-head\">\n\t\t\t\t\t\t\t<div class=\"mbr-section-head\">\n\t\t\t\t\t\t\t\t<h4 class=\"mbr-section-title mbr-fonts-style align-center mb-0\" mbr-theme-style=\"display-2\" mbr-if=\"showTitle\" data-app-selector=\".mbr-section-title\">\n\t\t\t\t\t\t\t\t\t<b>Do you face these challenges?</b></h4>\n\t\t\t\t\t\t\t\t<h5 class=\"mbr-section-subtitle mbr-fonts-style align-center mt-4 mb-0\" mbr-theme-style=\"display-7\" mbr-if=\"showSubtitle\" data-app-selector=\".mbr-section-subtitle\">\n\t\t\t\t\t\t\t\t\tFAQ</h5>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div id=\"bootstrap-accordion\" class=\"panel-group accordionStyles accordion\" role=\"tablist\" aria-multiselectable=\"true\">\n\t\t\t\t\t\t<div class=\"card\">\n\t\t\t\t\t\t\t<div class=\"card-header\" role=\"tab\" id=\"headingOne\">\n\t\t\t\t\t\t\t\t<a role=\"button\" class=\"panel-title collapsed\" data-toggle=\"collapse\" data-bs-toggle=\"collapse\" data-core href=\"#collapse1\" aria-expanded=\"false\" aria-controls=\"collapse1\">\n\t\t\t\t\t\t\t\t\t<h6 class=\"panel-title-edit mbr-semibold mbr-fonts-style mb-0\" mbr-theme-style=\"display-5\" data-app-selector=\".panel-title-edit, .mbr-iconfont\">\n\t\t\t\t\t\t\t\t\t\tI don't know whom to trust.</h6>\n\t\t\t\t\t\t\t\t\t<span class=\"sign mbr-iconfont mobi-mbri-arrow-down\"></span>\n\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div id=\"collapse1\" class=\"panel-collapse noScroll collapse\" role=\"tabpanel\" aria-labelledby=\"headingOne\" data-parent=\"#accordion\" data-bs-parent=\"#accordion\">\n\t\t\t\t\t\t\t\t<div class=\"panel-body\">\n\t\t\t\t\t\t\t\t\t<p class=\"mbr-fonts-style panel-text\" mbr-theme-style=\"display-7\" data-app-selector=\".panel-text\">\n\t\t\t\t\t\t\t\t\t\tI get contradictory information from various sources like YouTube, friends and family, making it hard to make informed decisions.\n\t\t\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"card\" mbr-if=\"cardAmount > 1\">\n\t\t\t\t\t\t\t<div class=\"card-header\" role=\"tab\" id=\"headingOne\">\n\t\t\t\t\t\t\t\t<a role=\"button\" class=\"panel-title collapsed\" data-toggle=\"collapse\" data-bs-toggle=\"collapse\" data-core href=\"#collapse2\" aria-expanded=\"false\" aria-controls=\"collapse2\">\n\t\t\t\t\t\t\t\t\t<h6 class=\"panel-title-edit mbr-semibold mbr-fonts-style mb-0\" mbr-theme-style=\"display-5\" data-app-selector=\".panel-title-edit\">I lack conviction in my investment decisions.</h6>\n\t\t\t\t\t\t\t\t\t<span class=\"sign mbr-iconfont mobi-mbri-arrow-down\"></span>\n\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div id=\"collapse2\" class=\"panel-collapse noScroll collapse\" role=\"tabpanel\" aria-labelledby=\"headingOne\" data-parent=\"#accordion\" data-bs-parent=\"#accordion\">\n\t\t\t\t\t\t\t\t<div class=\"panel-body\">\n\t\t\t\t\t\t\t\t\t<p class=\"mbr-fonts-style panel-text\" mbr-theme-style=\"display-7\" data-app-selector=\".panel-text\">\n\t\t\t\t\t\t\t\t\t\tIf I finally overcome the information overload and start on a path- and if things go awry along the way- I panic, second-guess my decision and stop investing- often to my detriment. (AMFI data shows more than 50% Indians stop their SIPs in the first 2 years)\n\t\t\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"card\" mbr-if=\"cardAmount > 2\">\n\t\t\t\t\t\t\t<div class=\"card-header\" role=\"tab\" id=\"headingOne\">\n\t\t\t\t\t\t\t\t<a role=\"button\" class=\"panel-title collapsed\" data-toggle=\"collapse\" data-bs-toggle=\"collapse\" data-core href=\"#collapse3\" aria-expanded=\"false\" aria-controls=\"collapse3\">\n\t\t\t\t\t\t\t\t\t<h6 class=\"panel-title-edit mbr-semibold mbr-fonts-style mb-0\" mbr-theme-style=\"display-5\" data-app-selector=\".panel-title-edit\">I’ve experienced significant losses from speculation.</h6>\n\t\t\t\t\t\t\t\t\t<span class=\"sign mbr-iconfont mobi-mbri-arrow-down\"></span>\n\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div id=\"collapse3\" class=\"panel-collapse noScroll collapse\" role=\"tabpanel\" aria-labelledby=\"headingOne\" data-parent=\"#accordion\" data-bs-parent=\"#accordion\">\n\t\t\t\t\t\t\t\t<div class=\"panel-body\">\n\t\t\t\t\t\t\t\t\t<p class=\"mbr-fonts-style panel-text\" mbr-theme-style=\"display-7\" data-app-selector=\".panel-text\">\n\t\t\t\t\t\t\t\t\t\tI have tried trading and speculating in the stock market, but it has led to substantial losses and shaken my confidence.\n\t\t\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"card\" mbr-if=\"cardAmount > 3\">\n\t\t\t\t\t\t\t<div class=\"card-header\" role=\"tab\" id=\"headingOne\">\n\t\t\t\t\t\t\t\t<a role=\"button\" class=\"panel-title collapsed\" data-toggle=\"collapse\" data-bs-toggle=\"collapse\" data-core href=\"#collapse4\" aria-expanded=\"false\" aria-controls=\"collapse4\">\n\t\t\t\t\t\t\t\t\t<h6 class=\"panel-title-edit mbr-semibold mbr-fonts-style mb-0\" mbr-theme-style=\"display-5\" data-app-selector=\".panel-title-edit\">I receive impersonal service.</h6>\n\t\t\t\t\t\t\t\t\t<span class=\"sign mbr-iconfont mobi-mbri-arrow-down\"></span>\n\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div id=\"collapse4\" class=\"panel-collapse noScroll collapse\" role=\"tabpanel\" aria-labelledby=\"headingOne\" data-parent=\"#accordion\" data-bs-parent=\"#accordion\">\n\t\t\t\t\t\t\t\t<div class=\"panel-body\">\n\t\t\t\t\t\t\t\t\t<p class=\"mbr-fonts-style panel-text\" mbr-theme-style=\"display-7\" data-app-selector=\".panel-text\">\n\t\t\t\t\t\t\t\t\t\tRelationship managers at my bank keep changing, and I don’t have a consistent advisor who understands my financial goals and needs.\n\t\t\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"card\" mbr-if=\"cardAmount > 4\">\n\t\t\t\t\t\t\t<div class=\"card-header\" role=\"tab\" id=\"headingOne\">\n\t\t\t\t\t\t\t\t<a role=\"button\" class=\"panel-title collapsed\" data-toggle=\"collapse\" data-bs-toggle=\"collapse\" data-core href=\"#collapse5\" aria-expanded=\"false\" aria-controls=\"collapse5\">\n\t\t\t\t\t\t\t\t\t<h6 class=\"panel-title-edit mbr-semibold mbr-fonts-style mb-0\" mbr-theme-style=\"display-5\" data-app-selector=\".panel-title-edit\">I struggle with behavioral biases.</h6>\n\t\t\t\t\t\t\t\t\t<span class=\"sign mbr-iconfont mobi-mbri-arrow-down\"></span>\n\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div id=\"collapse5\" class=\"panel-collapse noScroll collapse\" role=\"tabpanel\" aria-labelledby=\"headingOne\" data-parent=\"#accordion\" data-bs-parent=\"#accordion\">\n\t\t\t\t\t\t\t\t<div class=\"panel-body\">\n\t\t\t\t\t\t\t\t\t<p class=\"mbr-fonts-style panel-text\" mbr-theme-style=\"display-7\" data-app-selector=\".panel-text\">\n\t\t\t\t\t\t\t\t\t\tI recognize that my emotions and behavioral biases often lead to poor investment decisions, but I don't know how to manage them effectively.\n\t\t\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"card\" mbr-if=\"cardAmount > 5\">\n\t\t\t\t\t\t\t<div class=\"card-header\" role=\"tab\" id=\"headingOne\">\n\t\t\t\t\t\t\t\t<a role=\"button\" class=\"panel-title collapsed\" data-toggle=\"collapse\" data-bs-toggle=\"collapse\" data-core href=\"#collapse6\" aria-expanded=\"false\" aria-controls=\"collapse6\">\n\t\t\t\t\t\t\t\t\t<h6 class=\"panel-title-edit mbr-semibold mbr-fonts-style mb-0\" mbr-theme-style=\"display-5\" data-app-selector=\".panel-title-edit\">I need ongoing support and education.</h6>\n\t\t\t\t\t\t\t\t\t<span class=\"sign mbr-iconfont mobi-mbri-arrow-down\"></span>\n\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div id=\"collapse6\" class=\"panel-collapse noScroll collapse\" role=\"tabpanel\" aria-labelledby=\"headingOne\" data-parent=\"#accordion\" data-bs-parent=\"#accordion\">\n\t\t\t\t\t\t\t\t<div class=\"panel-body\">\n\t\t\t\t\t\t\t\t\t<p class=\"mbr-fonts-style panel-text\" mbr-theme-style=\"display-7\" data-app-selector=\".panel-text\">\n\t\t\t\t\t\t\t\t\t\tI want continuous support and education to improve my financial literacy and make better investment decisions over time.\n\t\t\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</section>",
+          "_cid": "uq8tBcDoui",
+          "_anchor": "list01-9",
+          "_protectedParams": [],
+          "_global": false,
+          "_once": false,
+          "_params": {}
+        },
+        {
+          "alias": false,
+          "_styles": {
+            "padding-top": "(@paddingTop * 1rem)",
+            "padding-bottom": "(@paddingBottom * 1rem)",
+            "& when (@bg-type = 'color')": {
+              "background-color": "@bg-value"
+            },
+            "& when (@bg-type = 'image')": {
+              "background-image": "url(@bg-value)"
+            },
+            ".mbr-iconfont": {
+              "font-size": "1.2rem !important",
+              "font-family": "'Moririse2' !important",
+              "color": "white",
+              "transition": "all 0.3s",
+              "transform": "rotate(180deg)",
+              "padding-left": "0.5rem"
+            },
+            ".panel-group": {
+              "border": "none"
+            },
+            ".card-header": {
+              "padding": "0rem",
+              "@media (max-width: 767px)": {
+                "padding": "0rem"
+              }
+            },
+            ".panel-body": {
+              "padding": "0rem",
+              "padding-bottom": "0.5rem",
+              "margin-top": "1rem"
+            },
+            ".img-col": {
+              "padding": "0"
+            },
+            ".img-item": {
+              "height": "100%"
+            },
+            "img": {
+              "height": "100%",
+              "object-fit": "cover"
+            },
+            ".collapsed": {
+              "span": {
+                "transform": "rotate(0deg)"
+              }
+            },
+            ".panel-title": {
+              "display": "flex",
+              "align-items": "center",
+              "justify-content": "space-between"
+            },
+            "p": {
+              "margin-bottom": "0.3rem"
+            },
+            ".panel-title-edit": {
+              "color": "#000000"
+            },
+            ".card .card-header": {
+              "background-color": "transparent",
+              "margin-bottom": "0",
+              "border": "0",
+              "border-radius": "2rem"
+            },
+            ".card": {
+              "background": "@items",
+              "padding": "2.25rem",
+              "border-radius": "2rem",
+              "margin-bottom": "1rem",
+              "@media (max-width: 767px)": {
+                "padding": "2rem 1.5rem",
+                "margin-bottom": "1rem"
+              },
+              "@media (min-width: 992px) and (max-width: 1200px)": {
+                "margin-bottom": "1rem",
+                "padding": "2rem 1.5rem"
+              }
+            },
+            ".panel-text": {
+              "color": "#000000"
+            },
+            ".mbr-section-title": {
+              "text-align": "center",
+              "color": "#000000"
+            },
+            ".mbr-section-subtitle": {
+              "color": "#000000",
+              "text-align": "center"
+            },
+            ".panel-title-edit, .mbr-iconfont": {
+              "color": "#000000"
+            }
+          },
+          "_name": "list01",
+          "_sourceTheme": "startm5",
+          "_customHTML": "<section data-bs-version=\"5.1\" class=\"list1\" group=\"List\" mbr-class=\"{'mbr-parallax-background':bg.parallax}\" plugins=\"mbr-switch-arrow, mobirise-icons2\">\t\n    <mbr-parameters>\n\t\t<header>Size</header>\n\t\t<input type=\"range\" inline title=\"Top\" name=\"paddingTop\" min=\"0\" max=\"10\" step=\"1\" value=\"0\">\n\t\t<input type=\"range\" inline title=\"Bottom\" name=\"paddingBottom\" min=\"0\" max=\"10\" step=\"1\" value=\"3\">\n\t\t<header>Show/Hide</header>\n\t\t<input type=\"checkbox\" title=\"Title\" name=\"showTitle\">\n\t\t<input type=\"checkbox\" title=\"Subtitle\" name=\"showSubtitle\">\n\t\t<select title=\"Amount\" name=\"cardAmount\">\n\t\t\t<option value=\"1\">1</option>\n\t\t\t<option value=\"2\">2</option>\n\t\t\t<option value=\"3\" selected>3</option>\n\t\t\t<option value=\"4\">4</option>\n\t\t\t<option value=\"5\">5</option>\n\t\t\t<option value=\"6\">6</option>\n\t\t</select>\n\t\t<header>Color</header>\n\t\t<input type=\"color\" title=\"Item\" name=\"items\" value=\"#ffffff\" selected>\n\n\t\t<header>Background</header>\n\t\t<fieldset type=\"background\" name=\"bg\" parallax>\n\t\t\t<input type=\"image\" title=\"Image\" value=\"../_images/background1.jpg\">\n\t\t\t<input type=\"color\" title=\"Color\" value=\"#edefeb\" selected>\n\t\t</fieldset>\n\t\t<input type=\"checkbox\" title=\"Overlay\" name=\"overlay\" checked condition=\"bg.type !== 'color'\">\n\t\t<input type=\"color\" title=\"Overlay Color\" name=\"overlayColor\" value=\"#ffffff\" condition=\"overlay && bg.type !== 'color'\">\n\t\t<input type=\"range\" inline title=\"Opacity\" name=\"overlayOpacity\" min=\"0\" max=\"1\" step=\"0.1\" value=\"0.9\" condition=\"overlay && bg.type !== 'color'\">\n\t</mbr-parameters>\n\t<div class=\"mbr-overlay\" mbr-if=\"overlay && bg.type!== 'color'\" mbr-style=\"{'opacity': overlayOpacity, 'background-color': overlayColor}\"></div>\n\t<div class=\"container\">\n\t\t<div class=\"row justify-content-center\">\n\t\t\t<div class=\"col-12 col-md-12 col-lg-10 m-auto\">\n\t\t\t\t<div class=\"content\">\n\t\t\t\t\t<div class=\"row justify-content-center mb-5\" mbr-if=\"showTitle || showSubtitle\">\n\t\t\t\t\t\t<div class=\"col-12 content-head\">\n\t\t\t\t\t\t\t<div class=\"mbr-section-head\">\n\t\t\t\t\t\t\t\t<h4 class=\"mbr-section-title mbr-fonts-style align-center mb-0\" mbr-theme-style=\"display-2\" mbr-if=\"showTitle\" data-app-selector=\".mbr-section-title\">\n\t\t\t\t\t\t\t\t\t<b>Got Questions?</b>\n\t\t\t\t\t\t\t\t</h4>\n\t\t\t\t\t\t\t\t<h5 class=\"mbr-section-subtitle mbr-fonts-style align-center mt-4 mb-0\" mbr-theme-style=\"display-7\" mbr-if=\"showSubtitle\" data-app-selector=\".mbr-section-subtitle\">\n\t\t\t\t\t\t\t\t\tFAQ</h5>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div id=\"bootstrap-accordion\" class=\"panel-group accordionStyles accordion\" role=\"tablist\" aria-multiselectable=\"true\">\n\t\t\t\t\t\t<div class=\"card\">\n\t\t\t\t\t\t\t<div class=\"card-header\" role=\"tab\" id=\"headingOne\">\n\t\t\t\t\t\t\t\t<a role=\"button\" class=\"panel-title collapsed\" data-toggle=\"collapse\" data-bs-toggle=\"collapse\" data-core href=\"#collapse1\" aria-expanded=\"false\" aria-controls=\"collapse1\">\n\t\t\t\t\t\t\t\t\t<h6 class=\"panel-title-edit mbr-semibold mbr-fonts-style mb-0\" mbr-theme-style=\"display-5\" data-app-selector=\".panel-title-edit, .mbr-iconfont\">I am an NRI, and I want to participate in India’s growth story.</h6>\n\t\t\t\t\t\t\t\t\t<span class=\"sign mbr-iconfont mobi-mbri-arrow-down\"></span>\n\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div id=\"collapse1\" class=\"panel-collapse noScroll collapse\" role=\"tabpanel\" aria-labelledby=\"headingOne\" data-parent=\"#accordion\" data-bs-parent=\"#accordion\">\n\t\t\t\t\t\t\t\t<div class=\"panel-body\">\n\t\t\t\t\t\t\t\t\t<p class=\"mbr-fonts-style panel-text\" mbr-theme-style=\"display-7\" data-app-selector=\".panel-text\">\n\t\t\t\t\t\t\t\t\t\tWhile I enjoy the clean air, posh roads of the developed world, I clearly recognize that India’s future growth and dynamism will be unmatched making it an ideal destination for investment. “India is where America was a 100 years back” as they say!\n\t\t\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"card\" mbr-if=\"cardAmount > 1\">\n\t\t\t\t\t\t\t<div class=\"card-header\" role=\"tab\" id=\"headingOne\">\n\t\t\t\t\t\t\t\t<a role=\"button\" class=\"panel-title collapsed\" data-toggle=\"collapse\" data-bs-toggle=\"collapse\" data-core href=\"#collapse2\" aria-expanded=\"false\" aria-controls=\"collapse2\">\n\t\t\t\t\t\t\t\t\t<h6 class=\"panel-title-edit mbr-semibold mbr-fonts-style mb-0\" mbr-theme-style=\"display-5\" data-app-selector=\".panel-title-edit\">I want to explore products beyond mutual funds as well.</h6>\n\t\t\t\t\t\t\t\t\t<span class=\"sign mbr-iconfont mobi-mbri-arrow-down\"></span>\n\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div id=\"collapse2\" class=\"panel-collapse noScroll collapse\" role=\"tabpanel\" aria-labelledby=\"headingOne\" data-parent=\"#accordion\" data-bs-parent=\"#accordion\">\n\t\t\t\t\t\t\t\t<div class=\"panel-body\">\n\t\t\t\t\t\t\t\t\t<p class=\"mbr-fonts-style panel-text\" mbr-theme-style=\"display-7\" data-app-selector=\".panel-text\">\n\t\t\t\t\t\t\t\t\t\tWithout falling prey to the Shiny Object Syndrome, where I have already lost my hard-earned money (remember NFTs?).\n\t\t\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"card\" mbr-if=\"cardAmount > 2\">\n\t\t\t\t\t\t\t<div class=\"card-header\" role=\"tab\" id=\"headingOne\">\n\t\t\t\t\t\t\t\t<a role=\"button\" class=\"panel-title collapsed\" data-toggle=\"collapse\" data-bs-toggle=\"collapse\" data-core href=\"#collapse3\" aria-expanded=\"false\" aria-controls=\"collapse3\">\n\t\t\t\t\t\t\t\t\t<h6 class=\"panel-title-edit mbr-semibold mbr-fonts-style mb-0\" mbr-theme-style=\"display-5\" data-app-selector=\".panel-title-edit\">I have dealt with enough fast-talking salespeople in this industry.</h6>\n\t\t\t\t\t\t\t\t\t<span class=\"sign mbr-iconfont mobi-mbri-arrow-down\"></span>\n\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div id=\"collapse3\" class=\"panel-collapse noScroll collapse\" role=\"tabpanel\" aria-labelledby=\"headingOne\" data-parent=\"#accordion\" data-bs-parent=\"#accordion\">\n\t\t\t\t\t\t\t\t<div class=\"panel-body\">\n\t\t\t\t\t\t\t\t\t<p class=\"mbr-fonts-style panel-text\" mbr-theme-style=\"display-7\" data-app-selector=\".panel-text\">\n\t\t\t\t\t\t\t\t\t\tI want to associate with someone empathetic enough to keep my needs and wants at the forefront.\n\t\t\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"card\" mbr-if=\"cardAmount > 3\">\n\t\t\t\t\t\t\t<div class=\"card-header\" role=\"tab\" id=\"headingOne\">\n\t\t\t\t\t\t\t\t<a role=\"button\" class=\"panel-title collapsed\" data-toggle=\"collapse\" data-bs-toggle=\"collapse\" data-core href=\"#collapse4\" aria-expanded=\"false\" aria-controls=\"collapse4\">\n\t\t\t\t\t\t\t\t\t<h6 class=\"panel-title-edit mbr-semibold mbr-fonts-style mb-0\" mbr-theme-style=\"display-5\" data-app-selector=\".panel-title-edit\">Founder's story</h6>\n\t\t\t\t\t\t\t\t\t<span class=\"sign mbr-iconfont mobi-mbri-arrow-down\"></span>\n\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div id=\"collapse4\" class=\"panel-collapse noScroll collapse\" role=\"tabpanel\" aria-labelledby=\"headingOne\" data-parent=\"#accordion\" data-bs-parent=\"#accordion\">\n\t\t\t\t\t\t\t\t<div class=\"panel-body\">\n\t\t\t\t\t\t\t\t\t<p class=\"mbr-fonts-style panel-text\" mbr-theme-style=\"display-7\" data-app-selector=\".panel-text\">Siddhesh Patwardhan:&nbsp;Through my experience of last 5 years, I have had the privilege of having insight into thousands of Indian as well as Canadian financial lives. I managed an AUM of around Rs. 20 crores in India as a wealth manager and about Rs. 95 crores while working in Canada as a financial advisor.<br>The reason for creating HNIs.in partly stems from my frustration with the current wealth management industry, where companies are focused on rapid scaling, often diluting the experience for the most important stakeholder: the investor. This is my attempt to create a “calm company” focused on cracking the code of finance for 1 individual at a time. <b style>My intent here is to provide a premium service for a limited number of premium clients, ensuring concentrated, personalized attention.</b><br></p>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"card\" mbr-if=\"cardAmount > 4\">\n\t\t\t\t\t\t\t<div class=\"card-header\" role=\"tab\" id=\"headingOne\">\n\t\t\t\t\t\t\t\t<a role=\"button\" class=\"panel-title collapsed\" data-toggle=\"collapse\" data-bs-toggle=\"collapse\" data-core href=\"#collapse5\" aria-expanded=\"false\" aria-controls=\"collapse5\">\n\t\t\t\t\t\t\t\t\t<h6 class=\"panel-title-edit mbr-semibold mbr-fonts-style mb-0\" mbr-theme-style=\"display-5\" data-app-selector=\".panel-title-edit\">\n\t\t\t\t\t\t\t\t\t\tWhat areas do you deliver to?\n\t\t\t\t\t\t\t\t\t</h6>\n\t\t\t\t\t\t\t\t\t<span class=\"sign mbr-iconfont mobi-mbri-arrow-down\"></span>\n\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div id=\"collapse5\" class=\"panel-collapse noScroll collapse\" role=\"tabpanel\" aria-labelledby=\"headingOne\" data-parent=\"#accordion\" data-bs-parent=\"#accordion\">\n\t\t\t\t\t\t\t\t<div class=\"panel-body\">\n\t\t\t\t\t\t\t\t\t<p class=\"mbr-fonts-style panel-text\" mbr-theme-style=\"display-7\" data-app-selector=\".panel-text\">\n\t\t\t\t\t\t\t\t\t\tLorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce vestibulum\n\t\t\t\t\t\t\t\t\t\tlaoreet tincidunt. Proin et sapien scelerisque, ornare lectus eget, iaculis\n\t\t\t\t\t\t\t\t\t\tlectus. Pellentesque viverra molestie tortor. Nunc sed interdum est, in maximus\n\t\t\t\t\t\t\t\t\t\tdiam. Donec eu tellus dictum, gravida velit et, sagittis arcu. Proin et lectus\n\t\t\t\t\t\t\t\t\t\tdapibus. Cras fringilla elit velit placerat tortor mollis cursus.\n\t\t\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"card\" mbr-if=\"cardAmount > 5\">\n\t\t\t\t\t\t\t<div class=\"card-header\" role=\"tab\" id=\"headingOne\">\n\t\t\t\t\t\t\t\t<a role=\"button\" class=\"panel-title collapsed\" data-toggle=\"collapse\" data-bs-toggle=\"collapse\" data-core href=\"#collapse6\" aria-expanded=\"false\" aria-controls=\"collapse6\">\n\t\t\t\t\t\t\t\t\t<h6 class=\"panel-title-edit mbr-semibold mbr-fonts-style mb-0\" mbr-theme-style=\"display-5\" data-app-selector=\".panel-title-edit\">\n\t\t\t\t\t\t\t\t\t\tIs there a minimum order requirement for delivery?\n\t\t\t\t\t\t\t\t\t</h6>\n\t\t\t\t\t\t\t\t\t<span class=\"sign mbr-iconfont mobi-mbri-arrow-down\"></span>\n\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div id=\"collapse6\" class=\"panel-collapse noScroll collapse\" role=\"tabpanel\" aria-labelledby=\"headingOne\" data-parent=\"#accordion\" data-bs-parent=\"#accordion\">\n\t\t\t\t\t\t\t\t<div class=\"panel-body\">\n\t\t\t\t\t\t\t\t\t<p class=\"mbr-fonts-style panel-text\" mbr-theme-style=\"display-7\" data-app-selector=\".panel-text\">\n\t\t\t\t\t\t\t\t\t\tLorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce vestibulum\n\t\t\t\t\t\t\t\t\t\tlaoreet tincidunt. Proin et sapien scelerisque, ornare lectus eget, iaculis\n\t\t\t\t\t\t\t\t\t\tlectus. Pellentesque viverra molestie tortor. Nunc sed interdum est, in maximus\n\t\t\t\t\t\t\t\t\t\tdiam. Donec eu tellus dictum, gravida velit et, sagittis arcu. Proin et lectus\n\t\t\t\t\t\t\t\t\t\tdapibus. Cras fringilla elit velit placerat tortor mollis cursus.\n\t\t\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</section>",
+          "_cid": "uq8tdzKiKs",
+          "_anchor": "list01-8",
+          "_protectedParams": [],
+          "_global": false,
+          "_once": false,
+          "_params": {}
+        },
+        {
+          "alias": false,
+          "_styles": {
+            "padding-top": "(@paddingTop * 1rem)",
+            "padding-bottom": "(@paddingBottom * 1rem)",
+            "background-color": "@bgColor",
+            ".mbr-text": {
+              "color": "#000000"
+            },
+            ".mbr-section-subtitle": {
+              "color": "#000000"
+            },
+            ".mbr-section-title": {
+              "color": "#000000"
+            }
+          },
+          "_name": "article12",
+          "_sourceTheme": "startm5",
+          "_customHTML": "<section data-bs-version=\"5.1\" class=\"article12\" group=\"Article\">    \n    <mbr-parameters>\n        <header>Size</header>\n        <input type=\"checkbox\" title=\"Full Width\" name=\"fullWidth\">\n        <input type=\"range\" inline title=\"Top\" name=\"paddingTop\" min=\"0\" max=\"10\" step=\"1\" value=\"5\">\n        <input type=\"range\" inline title=\"Bottom\" name=\"paddingBottom\" min=\"0\" max=\"10\" step=\"1\" value=\"5\">\n        <input type=\"range\" name=\"textWidth\" title=\"Width\" min=\"4\" max=\"12\" value=\"10\" step=\"1\">\n        <header>Show/Hide</header>\n        <input type=\"checkbox\" title=\"Title\" name=\"showTitle\" checked>\n        <input type=\"checkbox\" title=\"Subtitle\" name=\"showSubtitle\">\n        <input type=\"checkbox\" title=\"Text\" name=\"showText\" checked>\n        <header>Background</header>\n        <input type=\"color\" title=\"Color\" name=\"bgColor\" value=\"#ffffff\">\n    </mbr-parameters>\n    <div mbr-class=\"{'container': !fullWidth, 'container-fluid': fullWidth}\">\n        <div class=\"row justify-content-center\">\n            <div class=\"col-md-12 col-lg-{{textWidth}}\">\n                <h3 class=\"mbr-section-title mbr-fonts-style mb-4 mt-0\" mbr-if=\"showTitle\" data-app-selector=\".mbr-section-title\" mbr-theme-style=\"display-2\">\n                <b>Our Story</b><b><br></b></h3>\n                <h4 class=\"mbr-section-subtitle mbr-fonts-style mb-4\" mbr-if=\"showSubtitle\" data-app-selector=\".mbr-section-subtitle\" mbr-theme-style=\"display-5\">The storytelling magic of photos\n                </h4>\n                <p class=\"mbr-text mbr-fonts-style\" mbr-if=\"showText\" data-app-selector=\".mbr-text\" mbr-theme-style=\"display-7\">Siddhesh Patwardhan: Through my experience of last 5 years, I have had the privilege of having insight into thousands of Indian as well as Canadian financial lives. I managed an AUM of around Rs. 20 crores in India as a wealth manager and about Rs. 95 crores while working in Canada as a financial advisor.\n<br>The reason for creating HNIs.in partly stems from my frustration with the current wealth management industry, where companies are focused on rapid scaling, often diluting the experience for the most important stakeholder: the investor. This is my attempt to create a “calm company” focused on cracking the code of finance for 1 individual at a time. <b>My intent here is to provide a premium service for a limited number of premium clients, ensuring concentrated, personalized attention.</b></p>\n            </div>\n        </div>\n    </div>\n</section>",
+          "_cid": "uq8JVv9cvY",
+          "_anchor": "article12-b",
+          "_protectedParams": [],
+          "_global": false,
+          "_once": false,
+          "_params": {}
+        },
+        {
+          "alias": false,
+          "_styles": {
+            "padding-top": "(@paddingTop * 1rem)",
+            "padding-bottom": "(@paddingBottom * 1rem)",
+            "& when (@bg-type = 'image')": {
+              "background-image": "url(@bg-value)"
+            },
+            "& when (@bg-type = 'color')": {
+              "background-color": "@bg-value"
+            },
+            "overflow": "hidden"
+          },
+          "_name": "footer04",
+          "_sourceTheme": "startm5",
+          "_customHTML": "<section data-bs-version=\"5.1\" class=\"footer4\" group=\"Footers\" global once=\"footers\" mbr-class=\"{'mbr-reveal': reveal, 'mbr-parallax-background': bg.parallax}\">\n\n    <mbr-parameters>\n        <!-- Block parameters controls (Blue \"Gear\" panel) -->\n        <input type=\"range\" inline title=\"Top\" name=\"paddingTop\" min=\"0\" max=\"8\" step=\"1\" value=\"2\">\n        <input type=\"range\" inline title=\"Bottom\" name=\"paddingBottom\" min=\"0\" max=\"8\" step=\"1\" value=\"2\">\n        <input type=\"checkbox\" title=\"Reveal effect\" name=\"reveal\">\n        <header>Background</header>\n        <fieldset type=\"background\" name=\"bg\" parallax>\n            <input type=\"image\" title=\"Image\" value=\"../_images/background1.jpg\">\n            <input type=\"color\" title=\"Color\" value=\"#0c2c68\" selected>\n        </fieldset>\n        <input type=\"checkbox\" title=\"Overlay\" name=\"overlay\" condition=\"bg.type !== 'color'\" checked>\n        <input type=\"color\" title=\"Overlay Color\" name=\"overlayColor\" value=\"#2e481a\" condition=\"overlay && bg.type !== 'color'\">\n        <input type=\"range\" inline title=\"Opacity\" name=\"overlayOpacity\" min=\"0\" max=\"1\" step=\"0.1\" value=\"0.6\" condition=\"overlay && bg.type !== 'color'\">\n        <!-- End block parameters -->\n    </mbr-parameters>\n\n    <div class=\"mbr-overlay\" mbr-if=\"overlay && bg.type !== 'color'\" opacity=\"{{overlayOpacity}}\" bg-color=\"{{overlayColor}}\"></div>\n\n    <div class=\"container\">\n        <div class=\"media-container-row align-center mbr-white\">\n            <div class=\"col-12\">\n                <p class=\"mbr-text mb-0 mbr-fonts-style\" mbr-theme-style=\"display-7\" data-app-selector=\".media-container-row .mbr-text\" data-app-placeholder=\"Type Text\">\n                    ARN- 308850,APRN-APRN00939, Phone: +917276291411 (same WhatsApp), Email : sid@hnis.in\n                </p>\n            </div>\n        </div>\n    </div>\n</section>",
+          "_cid": "uq8lt2YTyq",
+          "_anchor": "footer04-7",
+          "_protectedParams": [],
+          "_global": true,
+          "_once": "footers",
+          "_params": {}
+        }
+      ]
+    }
+  }
+}
